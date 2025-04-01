@@ -1,4 +1,6 @@
 <script setup>
+import { StatusBar, Style } from '@capacitor/status-bar';
+
 const isDark = useDark({
   selector: "html",
   attribute: "class",
@@ -9,6 +11,15 @@ const switchTheme = useToggle(isDark);
 const icon_theme = computed(() =>
   !isDark.value ? "fa fa-lightbulb-on c-yellow" : "fa fa-moon-stars"
 );
+watch(isDark, (newValue) => {
+  if (newValue) {
+    StatusBar.setStyle({ style: Style.Light });
+    StatusBar.setBackgroundColor({ color: "#1c1c1e" });
+  } else {
+    StatusBar.setStyle({ style: Style.Dark });
+    StatusBar.setBackgroundColor({ color: "#f44e6e" });
+  }
+});
 </script>
 <template>
     <div>

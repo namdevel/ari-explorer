@@ -134,7 +134,7 @@ onMounted(() => {
                     <td class="py-3 px-4 border-b ari-border text-center text-sm md:text-base">
                       <div>{{ parseFloat(tx.amount) ? Math.floor(parseFloat(tx.amount)) : "-" }}</div>
                       <div class="text-gray-400 text-xs">
-                        {{ tx.method.includes("transfer") ? tx.amount.split(" ")[1] : "" }}
+                        {{ tx.method.includes("transfer") ? tx.coin : "" }}
                       </div>
                     </td>
                   </tr>

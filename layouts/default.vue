@@ -1,4 +1,6 @@
 <script setup>
+import { registerSafeAreaElement } from '@aashu-dubey/capacitor-statusbar-safe-area';
+registerSafeAreaElement();
 useHead({
   link: [
     {
@@ -9,11 +11,13 @@ useHead({
 });
 </script>
 <template>
+  <safe-area>
   <div>
     <main class="content shadow-inset">
       <slot />
     </main>
   </div>
+</safe-area>
 </template>
 <style>
 .content {
